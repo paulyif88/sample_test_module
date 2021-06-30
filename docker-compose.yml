@@ -7,7 +7,8 @@ services:
   # All of the information needed to start up an odoo web
   # application container.
   web:
-    image: odoo:12.0
+    image: odootest_runner:latest
+    container_name: odoo_web
     depends_on:
         - db
 
@@ -33,6 +34,7 @@ services:
     volumes:
       - ./odoo.conf:/etc/odoo/odoo.conf
       - ./test_module:/mnt/extra-addons/test_module
+    command: --dev all
 
     # Odoo Environment Variables
     # --------
@@ -55,7 +57,7 @@ services:
   # container.
   db:
     image: postgres:10
-
+    container_name: odoo_db
     # Database Environment Variables
     # --------
     #
