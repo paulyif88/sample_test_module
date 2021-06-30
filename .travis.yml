@@ -18,9 +18,11 @@ before_install:
 #  - sudo apt-get update
 #  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 install:
+  - pip install -r requirements.txt
   - docker-compose up -d
   - docker ps
 script:
-  - docker-compose run web --test-enable --stop-after-init -d test_1  -i test_module
+#  - docker-compose run web --test-enable --stop-after-init -d test_1  -i test_module
+  - docker-compose run web pytest -s /mnt/extra-addons/test_module --odoo-database=test_1 --odoo-config=/etc/odoo/odoo.conf
   - docker-compose stop
 # - python unit_tests.py
