@@ -8,7 +8,7 @@ class TweeterHelperTest(TransactionCase):
 	def setUp(self):
 		super(TweeterHelperTest, self).setUp()
 
-		self.settings = self.env['twitter.settings'].create({'username': 'my_username', 'pasword': 'my_password'})
+		self.settings = self.env['twitter.settings'].create({'username': 'my_username', 'password': 'my_password'})
 		self.tweeter = tweeter.Tweeter(self.settings)
 
 	def test_tweeter_creates_tweet_with_valid_data(self):
