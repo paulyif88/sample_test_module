@@ -20,9 +20,5 @@ install:
   - docker-compose up -d
   - docker-compose stop
 script:
-  - docker-compose run web \
-    --test-enable \
-    --stop-after-init \
-    -d test_1 \
-    -i test_module
+  - docker-compose run web --test-enable --stop-after-init -d test_1  -i test_module
 # - python unit_tests.py
