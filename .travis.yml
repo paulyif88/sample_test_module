@@ -13,12 +13,17 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
+  - docker-compose --version
+  - docker-compose pull
+  - docker-compose build
+  - docker-compose start
+  - docker ps
   # Upgrade Docker.
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
-install:
-  - docker-compose up -d
-  - docker-compose stop
+#  - sudo apt-get update
+#  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+#install:
+#  - docker-compose up -d
+#  - docker-compose stop
 script:
   - docker-compose run web --test-enable --stop-after-init -d test_1  -i test_module
 # - python unit_tests.py
