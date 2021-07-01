@@ -26,10 +26,10 @@ notifications:
   email:
     recipients:
     - olivier.simon@youritfactory.com
-    - blazeorjohny6@gmail.com
-    on_success: always
+    on_success: change
     on_failure: always
   slack:
     rooms:
       secure: DrQmcJpbiw47oPgyXKLj8jPFHjVDtvglPs8wawlQlZsdjIAPI6l72HO6zLHfoS9I7c8s+QrgERvXMaVmnuDVrJAkLCBwL/YBINGj0XX3BCV7IZVVRz6ch26dZxIxWDCXRfOizuClLQ6/sE/OMnQmBBSknTRy6dz72Vpx8nHC9yfCZwPmGKfZyOdxGOxl4Uvi0f2ds4UbkX8+2ntiqNaWct6SNGDlxx+OEBNesiMPOXa5tJJqBUC3oZRGbY9ulqVyLqjL8sIMbZ9ggL1lhNoW4E0ZyDyWGq5L9SGUewDVEBSALl91FgXVNDQ4DAM7iQt8A0Ka/7FNHzrfsgD9Im0NISWtnXcfFnPnkGlUc7qNS/PwPQs0O6UpAkGWrOuaoGHTjGolZuXDPEOKULjvTtJX00UywJ1LA66+GRhCStwvgX50DefhWMY8LwbH6INslqQN9+pWz3HO15VT5la1oOi/d2A+flLD05ENGZN1YSfcs0hH0eyhx0si++V5HoOTVy1Sj4n9i56tEpE9zA3rt9yF5SMHD9mUjtovZvSAXKSaGsRMEosVjSxnowTfeOo2GFKUGnll/o9qkq4pWbHs17zMhsSCpWL29ZYG+quqWeYt/o1sJd5Cvf6HWuSK/eEPAydKrQNfKZkj/iGFZy0z15aErNSHBhhfjroZYa8rkv3i6Ng=
-      on_success: always
+    on_success: always
+    on_failure: always
