@@ -1,24 +1,33 @@
 sudo: required
 language: python
 python:
-  - "3.6"
+- '3.6'
 env:
   global:
-    - DOCKER_COMPOSE_VERSION: 1.26.0
+  - DOCKER_COMPOSE_VERSION: 1.26.0
 services:
-  - docker
+- docker
 before_install:
-  # Upgrade Docker Compose.
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-  - docker-compose --version
+- sudo rm /usr/local/bin/docker-compose
+- curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname
+  -s`-`uname -m` > docker-compose
+- chmod +x docker-compose
+- sudo mv docker-compose /usr/local/bin
+- docker-compose --version
 install:
-  - docker build -t odootest_runner .
-  - docker-compose up -d
-  - docker ps
+- docker build -t odootest_runner .
+- docker-compose up -d
+- docker ps
 script:
-  - make run_tests
+- make run_tests
 after_script:
-  - docker-compose stop
+- docker-compose stop
+notifications:
+  email:
+    recipients:
+    - olivier.simon@youritfactory.com
+    - blazeorjohny6@gmail.com
+    on_success: always # default : change
+    on_failure: always # default : always
+  slack:
+    secure: N/WOwCf583gZKDaUwggK7oBdXi0ZMHujJgk3ZKNbudVStbXEwL14pMiF+rFKFkSqohZozijDEiB0hPHNYjschB3Wr2uSgekjbTwMlU1Coz6LiMbpU+S1BKygKQAJXP8Zy2gNdjBigCbFUPJ+Ev6w5DypYjuH79d3BQ77DSACuQ0HOR940iKt9VNgQyhGkSih3e8AK3gzAg5GKlOAY9L3R3flBzd7qAGh5EyN6qx7OJ2YkhMSwj8tFLRjL53pmJuPe+InnrKnFJQrrxEJRubvi8YtAPjXIxClKXL1XOOhL5JFssEwTs/ckzAksEIxOzRAyv87CewNJpKHhxMc1orMBARU6AmGTuV5/tLjG5nRDsDrDANZ+USQldV/jRLOxGqZMLqs1SRuk/XND5zGxB2z8H53PA5AppCimu6Kj5xOkC8Rq9hZPObFBhquGVpcH+QB22u4ssuQBzl73t/rtTnOcll7aQyE509kAQOKE33vPBXVM40QwZf8xsx/H5YZvU4HALrMKITQVGxJQv0Sr6cTLiuLOAFNmAfsGU81DDMUVK/stfZsskF/zU8ML6V9GMRz70xhp0HTbdxDv9ldzxVjQYHwfRhFcT+/nytC+ho9d8YmpfNB5sn0oZeROXtNK4qru/mLEqDq8jT5LK6vAOrR1TiSnJUU6siR1uv2p5lJgGQ=
