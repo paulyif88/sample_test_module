@@ -19,5 +19,6 @@ install:
   - docker-compose up -d
   - docker ps
 script:
-  - make generate_coverage_report
+  - make run_tests
+after_script:
   - docker-compose stop
